@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:todoapp="http://schemas.android.com/apk/res-auto"
+    tools:context=".TodoActivity">
+
+    <item android:id="@+id/action_add" android:title="@string/action_add"
+        android:orderInCategory="100" todoapp:showAsAction="ifRoom"
+        android:icon="@drawable/ic_add_white_24dp" />
+
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" todoapp:showAsAction="never" />
+</menu>
