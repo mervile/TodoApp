@@ -1,13 +1,24 @@
 package mervio.todoapp;
 
+import android.app.Dialog;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+
+import java.util.UUID;
+
+import mervio.todoapp.dummy.DummyContent;
 
 public class TodoActivity extends AppCompatActivity implements
-        TodoFragment.OnFragmentInteractionListener {
+        TodoFragment.OnFragmentInteractionListener, AddTodoDialogFragment.AddTodoDialogListener {
+
+    // TODO Save todo list
+    private static final String TAG = "TodoActivity";
+    private static final String ADDTODODIALOGTAG = "AddTodoDialogFragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +49,7 @@ public class TodoActivity extends AppCompatActivity implements
                 return true;
             case R.id.action_add:
                 // Show dialog
-                DialogFragment dialog = new AddTodoDialogFragment();
-                dialog.show(getSupportFragmentManager(), "tag");
+                showAddTodoDialog();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -48,5 +58,17 @@ public class TodoActivity extends AppCompatActivity implements
     @Override
     public void onFragmentInteraction(String id) {
         //TODO Select fragment
+    }
+
+    @Override
+    public void onNewTodo(String newTodo) {
+        String id = UUID.randomUUID().toString();
+        DummyContent.ITEMS.add(new DummyContent.DummyItem(id, newTodo));
+        Log.i(TAG, "Added new todo item: " + newTodo);
+    }
+
+    private void showAddTodoDialog() {
+        DialogFragment dialog = new AddTodoDialogFragment();
+        dialog.show(getSupportFragmentManager(), ADDTODODIALOGTAG);
     }
 }
