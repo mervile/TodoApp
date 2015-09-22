@@ -3,7 +3,7 @@
     package="mervio.todoapp" >
 
     <uses-sdk
-        android:minSdkVersion="7"
+        android:minSdkVersion="11"
         android:targetSdkVersion="23" />
 
     <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

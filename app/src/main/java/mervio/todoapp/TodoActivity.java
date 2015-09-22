@@ -1,20 +1,18 @@
 package mervio.todoapp;
 
-import android.app.Dialog;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 
 import java.util.UUID;
 
 import mervio.todoapp.dummy.DummyContent;
 
 public class TodoActivity extends AppCompatActivity implements
-        TodoFragment.OnFragmentInteractionListener, AddTodoDialogFragment.AddTodoDialogListener {
+        AddTodoDialogFragment.AddTodoDialogListener {
 
     // TODO Save todo list
     private static final String TAG = "TodoActivity";
@@ -53,11 +51,6 @@ public class TodoActivity extends AppCompatActivity implements
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onFragmentInteraction(String id) {
-        //TODO Select fragment
     }
 
     @Override
